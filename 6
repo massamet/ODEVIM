@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class EnBuyukSayiProgrami {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int enBuyukSayi = Integer.MIN_VALUE; // En küçük int değeri ile başlatılır
+        int enBuyukSayiSirasi = -1;
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.print(i + ". sayıyı giriniz: ");
+            int sayi = scanner.nextInt();
+
+            if (sayi > enBuyukSayi) {
+                enBuyukSayi = sayi;
+                enBuyukSayiSirasi = i;
+            }
+        }
+
+        System.out.println("En büyük sayı: " + enBuyukSayi);
+        System.out.println("En büyük sayı " + enBuyukSayiSirasi + ". sırada girildi.");
+
+        scanner.close();
+    }
+}
