@@ -1,0 +1,27 @@
+public class Ilk20AsalSayi {
+    public static void main(String[] args) {
+        int sayi = 2; // 
+        int asalSayiAdedi = 0; //
+
+        while (asalSayiAdedi < 20) {
+            if (isAsal(sayi)) {
+                System.out.print(sayi + " ");
+                asalSayiAdedi++;
+            }
+            sayi++;
+        }
+    }
+
+    //
+    private static boolean isAsal(int num) {
+        if (num < 2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
