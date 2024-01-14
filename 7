@@ -1,1 +1,31 @@
+import java.util.Scanner;
+
+public class SayiOraniProgrami {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int toplam50Ust = 0;
+        int toplam50Alt = 0;
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.print(i + ". sayıyı giriniz (0-100 arasında): ");
+            int sayi = scanner.nextInt();
+
+            if (sayi >= 50) {
+                toplam50Ust += sayi;
+            } else {
+                toplam50Alt += sayi;
+            }
+        }
+
+        if (toplam50Alt == 0) {
+            System.out.println("50'den küçük sayı girilmediği için oran hesaplanamıyor.");
+        } else {
+            double oran = (double) toplam50Ust / toplam50Alt;
+            System.out.println("50 ve üstü sayıların toplamı / 50'den küçük sayıların toplamı oranı: " + oran);
+        }
+
+        scanner.close();
+    }
+}
 
