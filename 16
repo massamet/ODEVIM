@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class KarakterSayisiProgrami {
+    public static void main(String[] args) {
+        // Örnek bir metin
+        String metin = "Bu bir örnek metindir.";
+
+        // Kullanıcıdan bir karakter girişi alınması
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Bir karakter giriniz: ");
+        char arananKarakter = scanner.next().charAt(0);
+
+        // Metin içinde karakterin kaç kez geçtiğinin hesaplanması
+        int karakterSayisi = 0;
+        for (int i = 0; i < metin.length(); i++) {
+            if (metin.charAt(i) == arananKarakter) {
+                karakterSayisi++;
+            }
+        }
+
+        // Sonuçların ekrana yazdırılması
+        System.out.println("Metin içinde '" + arananKarakter + "' karakteri " + karakterSayisi + " kez bulunmaktadır.");
+
+        scanner.close();
+    }
+}
