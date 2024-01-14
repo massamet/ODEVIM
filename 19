@@ -1,0 +1,55 @@
+public abstract class Pazaryeri {
+    private String isim;
+    private String renk;
+    private String sahiplik;
+
+   
+    private static Pazaryeri instance;
+
+
+    private Pazaryeri() {
+    }
+
+    
+    public static Pazaryeri getInstance() {
+        if (instance == null) {
+            instance = new Pazaryeri();
+        }
+        return instance;
+    }
+
+    
+    public void setPazaryeri(String isim, String renk, String sahiplik) {
+        this.isim = isim;
+        this.renk = renk;
+        this.sahiplik = sahiplik;
+    }
+
+  
+    public void setIsim(String isim) {
+        this.isim = isim;
+    }
+
+   
+    public void setRenk(String renk) {
+        this.renk = renk;
+    }
+
+  
+    protected abstract String PazaryeriTuru();
+
+
+    public String getIsim() {
+        return isim;
+    }
+
+  
+    public String getRenk() {
+        return renk;
+    }
+
+ 
+    public String getSahiplik() {
+        return sahiplik;
+    }
+}
