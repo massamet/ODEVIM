@@ -1,0 +1,97 @@
+import java.util.Scanner;
+
+import javax.swing.text.html.HTMLDocument.HTMLReader.ParagraphAction;
+
+public class AtmÖrnegi {
+
+	public static void main(String[] args) {
+
+		String islemsecenekleri = "Bakiye Görüntüleme --> 1" + "Para Çekmek --> 2" + "Para Yüklemek --> 3"
+				+ "Farklı bir hesapta işlem yapmak için --> f" + "Çıkış yapmak için q tuşuna basınız";
+
+		
+		Scanner scanner = new Scanner(System.in);
+		String sametIban = "TR89 0006 6088 9000 2689 62";
+		String sametkullanici = "sametglr";
+		String sametsifre = "123";
+		double sametBakiye = 2900;
+
+		String gokayIban = "TR56 0008 9066 9000 6595 95";
+		String gokaykullanıcı = "gokay";
+		String gokaysifre = "123galata";
+		double gokayBakiye = 1500;
+
+		System.out.println("GülerBank ATM'sine Hoşgeldiniz");
+		System.out.print("Kullanıcı Adınızı Giriniz :");
+		String kullaniciadi = scanner.nextLine();
+		System.out.print("Şifrenizi Giriniz :");
+		String sifre = scanner.nextLine();
+		if (kullaniciadi.equals(sametkullanici) && sifre.equals(sametsifre)) {
+			System.out.println("Samet Güler Hesabına Hoşgeldin <3 ");
+			System.out.println(islemsecenekleri);
+
+			System.out.print("Lütfen bir seçim yapınız : ");
+			String secim = scanner.nextLine();
+
+			switch (secim) {
+			case "1":
+				System.out.println("Bakiyeniz:" + sametBakiye);
+				break;
+
+			case "2":
+				System.out.print("Para çekmek istediğiniz tutarı giriniz :");
+				int cekilecektutar = scanner.nextInt();
+				if (sametBakiye >= cekilecektutar) {
+					sametBakiye -= cekilecektutar;
+					System.out.println("Kalan Tutar :" + sametBakiye);
+				} else 
+					System.out.println("Bakiyenizden fazla para çekemezsiniz...");
+				
+				break;
+				
+			case "3":
+				double islemlimiti =500; 
+				System.out.print("Para yatırmak istediğiniz tutarı giriniz :");
+				int yatirilacaktutar = scanner.nextInt();
+				if (yatirilacaktutar <= islemlimiti ) {
+					System.out.println("Para yatırma işlemi başarılı!");
+					double yenibakiye=sametBakiye+yatirilacaktutar;
+					System.out.println("Bakiyeniz :"+ yenibakiye);
+				} else {
+					System.out.println("İşlem limitinden fazla para yatıramazsınız...");
+				}
+				break;
+				
+			case "f":
+				System.out.print("Ne kadar yatırmak istiyorsunuz :");
+				int yatirilacaktutarfark = scanner.nextInt();
+				if (yatirilacaktutarfark<=sametBakiye)
+				{
+			
+			System.out.print("İban giriniz :");
+			scanner.nextLine();
+			String yatiriban=scanner.nextLine();
+			if (yatiriban.equals(gokayIban))
+			{
+			System.out.println("Paran Gökay Özgür isimli hesaba aktarılıyor...");
+			sametBakiye-=yatirilacaktutarfark;
+			gokayBakiye+=yatirilacaktutarfark;
+			System.out.println("Bakiyeniz : " + sametBakiye);
+			System.out.println("gokayun Bakiye : " + gokayBakiye);
+			}
+			   }
+			break;
+		}
+		
+				
+					
+									
+		} else if (kullaniciadi.equals(gokaykullanıcı) && sifre.equals(gokaysifre)) {
+			System.out.println("Gökay Özgür Hesabına Hoşgeldin <3 ");
+			System.out.println(islemsecenekleri);
+		} else {
+			System.out.println("Kullanıcı adınız veya şifreniz yanlış! ");
+		}
+
+	}
+}
