@@ -1,1 +1,38 @@
+import java.util.Random;
+import java.util.Scanner;
 
+public class TasKagitMakas {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        String[] secenekler = {"Taş", "Kağıt", "Makas"};
+
+        System.out.println("Taş, Kağıt, Makas oyununa hoş geldiniz!");
+        System.out.println("Lütfen seçiminizi yapın (0: Taş, 1: Kağıt, 2: Makas): ");
+        
+        int kullaniciSecimi = scanner.nextInt();
+
+        if (kullaniciSecimi < 0 || kullaniciSecimi > 2) {
+            System.out.println("Geçersiz seçim. 0, 1 veya 2 giriniz.");
+            return;
+        }
+
+        int bilgisayarSecimi = random.nextInt(3);
+
+        System.out.println("Bilgisayarın seçimi: " + secenekler[bilgisayarSecimi]);
+        System.out.println("Sizin seçiminiz: " + secenekler[kullaniciSecimi]);
+
+        // Kazananı kontrol et
+        if (bilgisayarSecimi == kullaniciSecimi) {
+            System.out.println("Berabere!");
+        } else if ((bilgisayarSecimi == 0 && kullaniciSecimi == 2) ||
+                   (bilgisayarSecimi == 1 && kullaniciSecimi == 0) ||
+                   (bilgisayarSecimi == 2 && kullaniciSecimi == 1)) {
+            System.out.println("Bilgisayar kazandı!");
+        } else {
+            System.out.println("Tebrikler, siz kazandınız!");
+        }
+    }
+}
